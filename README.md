@@ -9,14 +9,20 @@
 
 ## Installation
 Include the MNBQrV3 class in your project:
-```javascript
-const MNBQrV3 = require('path/to/MNBQrV3');
+#### NPM:
+```shell
+npm i mnb-qr-v3
 ```
-
+#### CDN:
+```html
+<script type="text/javascript" src="https://unpkg.com/mnb-qr-v3@latest/dist/MNBQrV3-min.js"></script>
+```
 ## Usage
 ### Creating an Instance
 You can initialize an instance of MNBQrV3 by passing an optional configuration object. This object should match the schema described below:
 ```javascript
+const MNBQrV3 = require('path/to/MNBQrV3');
+
 const qrData = new MNBQrV3({
     BIC: 'GIBAHUHB',
     name: 'Example Name',
@@ -29,10 +35,10 @@ const qrData = new MNBQrV3({
 });
 ```
 ### Methods
-- `async get(field)`: Retrieve the value of a specific field.
-- `async set(field, value)`: Set the value of a specific field after validation.
-- `async generateObject()`: Generate a JS object based on the field values.
-- `async generateJSON()`: Generate a JSON string based on the field values.
+- `get(field)`: Retrieve the value of a specific field.
+- `set(field, value)`: Set the value of a specific field after validation.
+- `generateObject()`: Generate a JS object based on the field values.
+- `generateJSON()`: Generate a JSON string based on the field values.
 
 #### Example
 ```javascript
@@ -51,6 +57,21 @@ qr.setExpiry(
 
 const json = qr.generateJSON();
 console.log(json);
+```
+### Generating the QR Code
+Once you've prepared the necessary data and structure, you can generate the QR code using any QR code generation library. One widely-used and easy-to-integrate option is [qrcodejs](https://github.com/davidshimjs/qrcodejs).
+
+```js
+const json = qr.generateJSON();
+
+new QRCode( document.getElementById('qr-code'), {
+        text: json,
+        width: 250,
+        height: 250,
+        colorDark : "#000000",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+    });
 ```
 
 ### Fields

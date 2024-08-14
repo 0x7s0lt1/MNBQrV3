@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@300;400;500;600;700&family=Public+Sans:wght@100;300;400;500&display=swap');
+
+html,body{
+    background-color: #e9e7e2;
+    color: #22224a;
+    font-family: 'Public Sans', sans-serif;
+}
+
+h4{
+    font-family: 'IBM Plex Serif', serif;
+}
+
+.mw-45{
+    max-width: 49%;
+    width: 49%;
+    min-width: 49%;
+    flex-basis: 49%;
+    max-height: 47rem;
+}
+
+#qrcode-wrapper{
+    display: none;
+}
+
+#qrcode{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    max-width: fit-content;
+    margin: auto;
+    box-shadow: 0 .5rem 1rem rgba(33,37,41,.15) !important;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+#generate-btn{
+    font-family: 'IBM Plex Serif', serif;
+    font-weight: bolder;
+}

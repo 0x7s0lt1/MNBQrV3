@@ -412,3 +412,5 @@ class MNBQrV3 {
     };
 
 }
+
+module.exports = MNBQrV3;
