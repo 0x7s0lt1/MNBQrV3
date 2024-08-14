@@ -367,7 +367,7 @@ class MNBQrV3 {
 
             if( this.#schemaIsValid() ){
 
-                const json = {
+                return {
                     "M": {
                         "I": this.#fields.identification.value,
                         "V": this.#schemaVersion,
@@ -395,9 +395,7 @@ class MNBQrV3 {
                         "d": this.#fields.discountId.value,
                         "n": this.#fields.NAVCode.value
                     }
-                }
-
-                return json;
+                };
 
             }
 
