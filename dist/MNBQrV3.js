@@ -150,23 +150,17 @@ class MNBQrV3 {
 
     };
 
-    constructor( schemaConf ) {
+    constructor( _conf ) {
 
-        if( schemaConf !== undefined){
+        if( _conf !== undefined && typeof _conf === "object"){
 
-            if(typeof schemaConf === "object"){
-
-                Object.keys(schemaConf).forEach( ( _a) =>{
-                    if( this.#get(_a) !== false ){
-                        if( this.#isValid( _a, schemaConf[_a] ) === true ){
-                            this.#set( _a, schemaConf[_a] );
-                        }
+            Object.keys(_conf).forEach( ( _a) =>{
+                if( this.#get(_a) !== false ){
+                    if( this.#isValid( _a, _conf[_a] ) ){
+                        this.#set( _a, _conf[_a] );
                     }
-                });
-
-            }else{
-                console.warn("Wrong schema config");
-            }
+                }
+            });
 
         }
     }
@@ -176,7 +170,7 @@ class MNBQrV3 {
             return this.#fields[_f].value;
         }else {
             console.log(`Invalid field: ${_f}`);
-            return false;
+            return null;
         }
     }
     #set(_f, _v){
@@ -188,19 +182,20 @@ class MNBQrV3 {
             }
         }
     }
+
     getBIC(){
         return this.#get( this.#KEY.BIC );
     }
     setBIC(_v){
         this.#set( this.#KEY.BIC, _v );
     }
-    async getName(){
+    getName(){
         return this.#get( this.#KEY.NAME );
     }
     setName(_v){
         this.#set( this.#KEY.NAME, _v );
     }
-    async getIBAN(){
+    getIBAN(){
         return this.#get( this.#KEY.IBAN );
     }
     setIBAN(_v){
@@ -298,6 +293,7 @@ class MNBQrV3 {
     }
 
     #isValid( _f, _v ){
+
         try{
 
             if(!this.#fields.hasOwnProperty(_f)){
@@ -329,6 +325,7 @@ class MNBQrV3 {
             console.error(err);
             return false;
         }
+
     }
     #schemaIsValid(){
 
@@ -400,10 +397,9 @@ class MNBQrV3 {
     };
 
     generateJSON(){
+
         try{
-            return JSON.stringify(
-                this.generateObject()
-            );
+            return JSON.stringify( this.generateObject() );
         }catch (err){
             console.error(err);
             return (err);
