@@ -17,10 +17,6 @@ let App = {
 
     init : function(){
 
-        // const today = new Date();
-        // today.setDate(today.getDate() + 2);
-        // document.getElementById('expiry').value = today.toISOString().split('T')[0];
-
         App.ui.button.generate.addEventListener('click', App.generateQr,false);
 
     },
@@ -61,7 +57,6 @@ let App = {
 
     },
 
-    // clear and generate qr and the download links
     generateQr: function(){
 
         const _mnb = new MNBQrV3({ ...App.getFields() });
@@ -96,6 +91,6 @@ let App = {
 
     },
 
-}
+};
 
 window.addEventListener('load', App.init, false);

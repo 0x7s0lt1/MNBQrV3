@@ -11,11 +11,8 @@ h4{
 }
 
 .mw-45{
-    max-width: 49%;
-    width: 49%;
-    min-width: 49%;
-    flex-basis: 49%;
-    max-height: 47rem;
+    min-width: 60%;
+    max-width: 60%;
 }
 
 #qrcode-wrapper{

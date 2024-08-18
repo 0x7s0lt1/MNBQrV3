@@ -1,10 +1,14 @@
 {
   "name": "mnb-qr-v3",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
   "main": "./dist/MNBQrV3-module-min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/0x7s0lt1/MNBQrV3"
   },
   "keywords": [],
   "author": "",
